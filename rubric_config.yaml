@@ -1,0 +1,67 @@
+course: "DTSC 690 Presentation"
+version: "2026-03-01"
+
+weights:
+  intro: 0.10
+  depth: 0.30
+  sources: 0.30
+  presentation: 0.30
+
+thresholds:
+  sources_required_min: 10
+  turnitin_review_pct: 30        # "take a look"
+  turnitin_flag_pct: 70          
+  turnitin_100_retake_note: true
+
+turnitin_explainability:
+  enable: true
+  quote_ratio_heavy: 0.15          # 15%+ quoted text
+  overlap_block_min_words: 40
+  patchwork_sources_min: 8
+  bibliography_section_headers: ["references", "works cited", "bibliography"]
+
+deductions_points:
+  face_not_visible: 25
+
+  video_requires_download: 5
+
+  reference_slide_missing_in_video_but_in_pdf: 5
+  reference_slide_missing_in_both_video_and_pdf: 10
+
+  sources_missing_per_source: 3
+  sources_bad_format: 5
+
+  no_slide_citations_but_refs_shown: 10
+  few_slide_citations_min: 3
+  few_slide_citations_max: 8
+
+  late_per_day: 10   # 10 points off per day late on assignment submission
+
+caps:
+  runtime_over_20_cap_points: 10
+  runtime_apply_to_category_max_points: 15   # if >15, move to overall manual deduction bucket
+  clamp_final_min: 0
+  clamp_final_max: 100
+
+runtime_rules:
+  target_min_minutes: 15
+  target_max_minutes: 20
+  under_formula: "((target_min - runtime) / target_min) * 100"
+  over_formula: "((runtime - target_max) / target_max) * 100"
+
+modifiers_percent:
+  resubmission_multiplier: 0.95 
+  early_extra_credit_multiplier: 1.05
+
+flags:
+  # conditions that trigger "flag_for_kiersten"
+  flag_if_submission_incomplete: true
+  flag_if_video_inaccessible: true
+  flag_if_turnitin_ge_flag_pct: true
+  flag_if_suspected_plagiarism: true
+  flag_if_missing_required_pdfs: true
+  flag_if_submission_instructions_not_followed: true
+
+notes:
+  reminder_save_not_publish: true
+  check_ga_email_if_major_depth_deduction: true
